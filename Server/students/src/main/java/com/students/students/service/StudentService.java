@@ -26,7 +26,11 @@ public class StudentService {
         return students;
     }
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) throws Exception{
+        if(student.getId() != null){
+            throw new Exception("an id should not be provided");
+        }
+
         repo.save(student);
     }
 
