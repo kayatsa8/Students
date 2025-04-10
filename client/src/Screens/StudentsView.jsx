@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import StudentTable from "../Components/StudentTable";
+import StudentTable from "../Components/StudentsTable/StudentTable";
 import axios from "axios";
 
 const StudentsView = () => {
