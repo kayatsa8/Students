@@ -17,5 +17,5 @@ public class StudentUpdate {
     private String lastName;
     private String email;
     private Department department;
-    private Float GPA;
+    private Float gpa;
 }
