@@ -1,4 +1,4 @@
-const Students = () => {
+const StudentsView = () => {
     return (
         <div>
             students
@@ -6,4 +6,4 @@ const Students = () => {
     );
 }
  
-export default Students;
+export default StudentsView;
