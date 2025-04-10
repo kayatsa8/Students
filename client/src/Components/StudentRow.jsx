@@ -5,6 +5,7 @@ const StudentRow = ({student}) => {
             <td>{student.firstName}</td>
             <td>{student.lastName}</td>
             <td>{student.email}</td>
+            <td>{student.department}</td>
             <td>{student.gpa}</td>
         </tr>
     );
