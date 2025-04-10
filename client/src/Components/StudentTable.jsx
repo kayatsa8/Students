@@ -1,7 +1,7 @@
 import { useState } from "react";
 import StudentRow from "./StudentRow";
 
-const StudentTable = ({students, setStudents}) => {
+const StudentTable = ({students}) => {
     const [sortConfig, setSortConfig] = useState({col: null, direction: "asc"});
     const [filters, setFilters] = useState({firstName: "", lastName: "", department: ""});
 

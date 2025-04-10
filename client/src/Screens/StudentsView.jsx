@@ -34,7 +34,7 @@ const StudentsView = () => {
 
     return (
         <div>
-            <StudentTable students={students} setStudents={setStudents}/>
+            <StudentTable students={students}/>
         </div>
     );
 }
