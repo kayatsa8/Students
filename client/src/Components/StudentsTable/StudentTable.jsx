@@ -1,6 +1,7 @@
 import { useState } from "react";
 import StudentRow from "./StudentRow";
 import TableHeaders from "./TableHeaders";
+import HeaderFilters from "./HeaderFilters";
 
 const StudentTable = ({students}) => {
     const [sortConfig, setSortConfig] = useState({col: null, direction: "asc"});
@@ -71,35 +72,7 @@ const StudentTable = ({students}) => {
         <table>
             <thead>
                 <TableHeaders sortColumn={sortColumn} getSortArrow={getSortArrow}/>
-                <tr>
-                    <th />
-                    <th>
-                        <input
-                            type="text"
-                            placeholder="first name"
-                            value={filters.firstName}
-                            onChange={(e) => handleFilterChange("firstName", e.target.value)}
-                        />
-                    </th>
-                    <th>
-                        <input
-                            type="text"
-                            placeholder="last name"
-                            value={filters.lastName}
-                            onChange={(e) => handleFilterChange("lastName", e.target.value)}
-                        />
-                    </th>
-                    <th />
-                    <th>
-                        <input
-                            type="text"
-                            placeholder="department"
-                            value={filters.department}
-                            onChange={(e) => handleFilterChange("department", e.target.value)}
-                        />
-                    </th>
-                    <th />
-                </tr>
+                <HeaderFilters filters={filtered} handleFilterChange={handleFilterChange} />
             </thead>
 
             <tbody>
