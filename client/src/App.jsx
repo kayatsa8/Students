@@ -11,7 +11,7 @@ const App = () => {
         <div>
           <Switch>
 
-            <Route path="/">
+            <Route exact path="/">
               <Students />
             </Route>
 
