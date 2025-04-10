@@ -1,29 +1,22 @@
+import { useEffect, useState } from "react";
 import StudentTable from "../Components/StudentTable";
+import axios from "axios";
 
 const StudentsView = () => {
-    const students = [
-        {
-            id: 1,
-            firstName: "Frodo",
-            lastName: "Baggins",
-            email: "bagginsf@shiremail.com",
-            gpa: 80
-        },
-        {
-            id: 2,
-            firstName: "Frodo",
-            lastName: "Baggins",
-            email: "bagginsf@shiremail.com",
-            gpa: 80
-        },
-        {
-            id: 3,
-            firstName: "Frodo",
-            lastName: "Baggins",
-            email: "bagginsf@shiremail.com",
-            gpa: 80
-        }
-    ];
+    const [students, setStudents] = useState([]);
+
+
+
+    useEffect(() => {
+        
+    }, []);
+
+
+
+
+
+
+
 
     return (
         <div>
