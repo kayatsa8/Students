@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './Screens/NotFound';
-import Students from './Screens/StudentsView';
+import StudentsView from './Screens/StudentsView';
 
 
 
@@ -12,7 +12,7 @@ const App = () => {
           <Switch>
 
             <Route exact path="/">
-              <Students />
+              <StudentsView />
             </Route>
 
             <Route path="*">
