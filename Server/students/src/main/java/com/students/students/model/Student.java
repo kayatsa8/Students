@@ -22,23 +22,28 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @NotBlank(message = "First name must be provided")
     private String firstName;
+
     @NotBlank(message = "Last name must be provided")
     private String lastName;
+
     @NotBlank(message = "Email address must be provided")
     private String email;
+
     @NotNull(message = "Department must be provided")
     private Department department;
+    
     @Min(value = 0, message = "GPA must be greater or equal to 0")
     @Max(value = 100, message = "GPA must be lesser or equal to 100")
-    private Float GPA;
+    private Float gpa;
 
     public void update(StudentUpdate updated){
         this.firstName = updated.getFirstName().isBlank() ? this.firstName : updated.getFirstName();
         this.lastName = updated.getLastName().isBlank() ? this.lastName : updated.getLastName();
         this.email = updated.getEmail().isBlank() ? this.email : updated.getEmail();
         this.department = updated.getDepartment() == null ? this.department : updated.getDepartment();
-        this.GPA = updated.getGPA() == null ? this.GPA : updated.getGPA();
+        this.gpa = updated.getGpa() == null ? this.gpa : updated.getGpa();
     }
 }
