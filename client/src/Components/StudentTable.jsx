@@ -36,16 +36,16 @@ const StudentTable = ({students, setStudents}) => {
         }));
     };
 
-    const filtered = students.filter((student) => {
+    const filtered = students.filter((student) => 
         Object.entries(filters).every(([key, value]) => {
             if(value === ""){
                 return true;
             }
             else{
-                return String(student[key]).toLowerCase().includes(value.toLowerCase);
+                return String(student[key]).toLowerCase().includes(value.toLowerCase());
             }
         })
-    });
+    );
 
     const sortedStudents = [...filtered].sort((s1, s2) => {
         const {col, direction} = sortConfig;
@@ -76,6 +76,35 @@ const StudentTable = ({students, setStudents}) => {
                     <th onClick={() => sortColumn("email")}>Email {getSortArrow("email")}</th>
                     <th onClick={() => sortColumn("department")}>Department {getSortArrow("department")}</th>
                     <th onClick={() => sortColumn("gpa")}>GPA {getSortArrow("gpa")}</th>
+                </tr>
+                <tr>
+                    <th />
+                    <th>
+                        <input
+                            type="text"
+                            placeholder="first name"
+                            value={filters.firstName}
+                            onChange={(e) => handleFilterChange("firstName", e.target.value)}
+                        />
+                    </th>
+                    <th>
+                        <input
+                            type="text"
+                            placeholder="last name"
+                            value={filters.lastName}
+                            onChange={(e) => handleFilterChange("lastName", e.target.value)}
+                        />
+                    </th>
+                    <th />
+                    <th>
+                        <input
+                            type="text"
+                            placeholder="department"
+                            value={filters.department}
+                            onChange={(e) => handleFilterChange("department", e.target.value)}
+                        />
+                    </th>
+                    <th />
                 </tr>
             </thead>
 
