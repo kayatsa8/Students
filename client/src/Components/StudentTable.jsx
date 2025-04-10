@@ -13,13 +13,6 @@ const StudentTable = ({students, setStudents}) => {
             direction = 'desc';
         }
 
-        const sortedStudents = [...students].sort((s1, s2) => {
-            if (s1[col] < s2[col]) return direction === 'asc' ? -1 : 1;
-            if (s1[col] > s2[col]) return direction === 'asc' ? 1 : -1;
-            return 0;
-        });
-
-        setStudents(sortedStudents);
         setSortConfig({col: col, direction: direction});
     };
 
@@ -54,6 +47,21 @@ const StudentTable = ({students, setStudents}) => {
         })
     });
 
+    const sortedStudents = [...filtered].sort((s1, s2) => {
+        const {col, direction} = sortConfig;
+
+        if(col === null){
+            return -1;
+        }
+
+        if (s1[col] <= s2[col]){
+            return direction === 'asc' ? -1 : 1
+        }
+        else{
+            return direction === 'asc' ? 1 : -1
+        };
+    });
+
     
 
 
@@ -72,7 +80,7 @@ const StudentTable = ({students, setStudents}) => {
             </thead>
 
             <tbody>
-                {students.map((student) => <StudentRow key={student.id} student={student}/>)}
+                {sortedStudents.map((student) => <StudentRow key={student.id} student={student}/>)}
             </tbody>
         </table>
     );
