@@ -24,6 +24,10 @@ public class StudentService {
         return students;
     }
 
+    public void addStudent(Student student){
+        repo.save(student);
+    }
+
 
 
 }
