@@ -1,4 +1,4 @@
-const TableHeaders = () => {
+const TableHeaders = ({sortColumn, getSortArrow}) => {
     return (
         <tr>
             <th onClick={() => sortColumn("id")}>Id {getSortArrow("id")}</th>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import StudentRow from "./StudentRow";
+import TableHeaders from "./TableHeaders";
 
 const StudentTable = ({students}) => {
     const [sortConfig, setSortConfig] = useState({col: null, direction: "asc"});
@@ -69,7 +70,7 @@ const StudentTable = ({students}) => {
     return (
         <table>
             <thead>
-                
+                <TableHeaders sortColumn={sortColumn} getSortArrow={getSortArrow}/>
                 <tr>
                     <th />
                     <th>
