@@ -26,7 +26,7 @@ const StudentsView = () => {
     }, []);
 
 
-
+    const excellent = students.filter((student) => student.gpa >= 90);
 
 
 
@@ -34,7 +34,11 @@ const StudentsView = () => {
 
     return (
         <div>
+            <h2>Students</h2>
             <StudentTable students={students}/>
+
+            <h2>Excellent Students</h2>
+            <StudentTable students={excellent}/>
         </div>
     );
 }
