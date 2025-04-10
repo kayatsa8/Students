@@ -1,8 +1,25 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NotFound from './Screens/NotFound';
+
+
+
 const App = () => {
   return (
-    <div>
-      hi
-    </div>
+    <Router>
+      <div>
+        <div>
+          <Switch>
+
+            <Route path="*">
+              <NotFound />
+            </Route>
+
+          </Switch>
+        </div>
+
+        {/* put toast here */}
+      </div>
+    </Router>
   );
 }
  
