@@ -3,6 +3,7 @@ import StudentRow from "./StudentRow";
 
 const StudentTable = ({students, setStudents}) => {
     const [sortConfig, setSortConfig] = useState({col: null, direction: "asc"});
+    const [filters, setFilters] = useState({firstName: "", lastName: "", department: ""});
 
     
     const sortColumn = (col) => {
@@ -35,6 +36,26 @@ const StudentTable = ({students, setStudents}) => {
         }
     };
 
+    const handleFilterChange = (key, val) => {
+        setFilters((prev) => ({
+            ...prev,
+            [key]: val
+        }));
+    };
+
+    const filtered = students.filter((student) => {
+        Object.entries(filters).every(([key, value]) => {
+            if(value === ""){
+                return true;
+            }
+            else{
+                return String(student[key]).toLowerCase().includes(value.toLowerCase);
+            }
+        })
+    });
+
+    
+
 
 
     return (
@@ -45,6 +66,7 @@ const StudentTable = ({students, setStudents}) => {
                     <th onClick={() => sortColumn("firstName")}>First Name {getSortArrow("firstName")}</th>
                     <th onClick={() => sortColumn("lastName")}>Last Name {getSortArrow("lastName")}</th>
                     <th onClick={() => sortColumn("email")}>Email {getSortArrow("email")}</th>
+                    <th onClick={() => sortColumn("department")}>Department {getSortArrow("department")}</th>
                     <th onClick={() => sortColumn("gpa")}>GPA {getSortArrow("gpa")}</th>
                 </tr>
             </thead>
