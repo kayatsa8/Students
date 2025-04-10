@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './Screens/NotFound';
+import Students from './Screens/StudentsView';
 
 
 
@@ -9,6 +10,10 @@ const App = () => {
       <div>
         <div>
           <Switch>
+
+            <Route path="/">
+              <Students />
+            </Route>
 
             <Route path="*">
               <NotFound />
