@@ -35,10 +35,10 @@ const StudentsView = () => {
     return (
         <div>
             <h2>Students</h2>
-            <StudentTable students={students}/>
+            <StudentTable students={students} initSort={{col: "id", direction: "asc"}}/>
 
             <h2>Excellent Students</h2>
-            <StudentTable students={excellent}/>
+            <StudentTable students={excellent} initSort={{col: "gpa", direction: "desc"}}/>
         </div>
     );
 }

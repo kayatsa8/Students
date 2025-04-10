@@ -3,8 +3,8 @@ import StudentRow from "./StudentRow";
 import TableHeaders from "./TableHeaders";
 import HeaderFilters from "./HeaderFilters";
 
-const StudentTable = ({students}) => {
-    const [sortConfig, setSortConfig] = useState({col: null, direction: "asc"});
+const StudentTable = ({students, initSort}) => {
+    const [sortConfig, setSortConfig] = useState(initSort);
     const [filters, setFilters] = useState({firstName: "", lastName: "", department: ""});
 
     
