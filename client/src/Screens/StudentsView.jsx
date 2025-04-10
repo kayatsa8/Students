@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import StudentTable from "../Components/StudentsTable/StudentTable";
 import axios from "axios";
 
 const StudentsView = () => {
     const [students, setStudents] = useState([]);
+    const navigate = useNavigate();
     const [error, setError] = useState(null);
 
 
@@ -28,7 +30,9 @@ const StudentsView = () => {
 
     const excellent = students.filter((student) => student.gpa >= 90);
 
-
+    const handleAddStudentClick = () => {
+        navigate("add");
+    };
 
 
 
@@ -39,6 +43,8 @@ const StudentsView = () => {
 
             <h2>Excellent Students</h2>
             <StudentTable students={excellent} initSort={{col: "gpa", direction: "desc"}}/>
+
+            <button onClick={handleAddStudentClick}>Add Student</button>
         </div>
     );
 }
