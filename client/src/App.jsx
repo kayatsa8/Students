@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NotFound from './Screens/NotFound';
 import StudentsView from './Screens/StudentsView';
 
@@ -9,17 +9,13 @@ const App = () => {
     <Router>
       <div>
         <div>
-          <Switch>
+          <Routes>
 
-            <Route exact path="/">
-              <StudentsView />
-            </Route>
+            <Route exact path="/" element={<StudentsView />} />
 
-            <Route path="*">
-              <NotFound />
-            </Route>
+            <Route path="*" element={<NotFound />} />
 
-          </Switch>
+          </Routes>
         </div>
 
         {/* put toast here */}
