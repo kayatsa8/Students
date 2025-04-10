@@ -5,12 +5,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.students.students.model.Student;
 import com.students.students.model.StudentUpdate;
 import com.students.students.repository.StudentRepository;
 
+import jakarta.validation.Valid;
+
 @Service
+@Validated
 public class StudentService {
     private StudentRepository repo;
 
@@ -26,11 +30,15 @@ public class StudentService {
         return students;
     }
 
-    public void addStudent(Student student){
+    public void addStudent(@Valid Student student) throws Exception{
+        if(student.getId() != null){
+            throw new Exception("an id should not be provided");
+        }
+
         repo.save(student);
     }
 
-    public void updateStudent(StudentUpdate updated) throws Exception{
+    public void updateStudent(@Valid StudentUpdate updated) throws Exception{
         if(updated.getId() == null){
             throw new Exception("given id is null");
         }
