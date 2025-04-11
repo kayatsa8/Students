@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const AddStudent = () => {
     const navigate = useNavigate();
@@ -11,7 +12,6 @@ const AddStudent = () => {
     const [gpa, setGpa] = useState(0);
     const [departments, setDepartments] = useState({});
     const [isPending, setIsPending] = useState(false);
-    const [isCompleted, setIsCompleted] = useState(false); // TODO: toast
 
 
     const handleBackClick = () => {
@@ -38,10 +38,30 @@ const AddStudent = () => {
                     }
 
                     setIsPending(() => false);
-                    setIsCompleted(() => true);
+                    
+                    toast.success("Success!", {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 })
                 .catch((err) => {
-                    // TODO: add error handling
+                    toast.error(err, {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+
                     setIsPending(() => false);
                 });
     };
@@ -59,7 +79,16 @@ const AddStudent = () => {
                     setDepartments(() => data);
                 })
                 .catch((err) => {
-                    setError(() => err);
+                    toast.error(err, {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 });
     }, []);
 
