@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StudentTable from "../Components/StudentsTable/StudentTable";
 import axios from "axios";
+import NavBar from "../Components/NavBar";
 
 const StudentsView = () => {
     const [students, setStudents] = useState([]);
     const navigate = useNavigate();
     const [error, setError] = useState(null);
-
+    const [studentToEdit, setStudentToEdit] = useState(null);
 
 
     useEffect(() => {
@@ -31,20 +32,35 @@ const StudentsView = () => {
     const excellent = students.filter((student) => student.gpa >= 90);
 
     const handleAddStudentClick = () => {
-        navigate("add");
+        navigate("/add");
+    };
+
+    const handleEditStudent = () => {
+        navigate("/edit", {state: studentToEdit});
     };
 
 
 
     return (
         <div>
+            <NavBar />
+
             <h2>Students</h2>
-            <StudentTable students={students} initSort={{col: "id", direction: "asc"}}/>
+            <StudentTable
+                students={students}
+                initSort={{col: "id", direction: "asc"}}
+                setStudentToEdit={setStudentToEdit}
+            />
 
             <h2>Excellent Students</h2>
-            <StudentTable students={excellent} initSort={{col: "gpa", direction: "desc"}}/>
+            <StudentTable
+                students={excellent}
+                initSort={{col: "gpa", direction: "desc"}}
+                setStudentToEdit={setStudentToEdit}
+            />
 
             <button onClick={handleAddStudentClick}>Add Student</button>
+            {studentToEdit && <button onClick={handleEditStudent}>Edit {`${studentToEdit.firstName} ${studentToEdit.lastName} (${studentToEdit.id})`}</button>}
         </div>
     );
 }

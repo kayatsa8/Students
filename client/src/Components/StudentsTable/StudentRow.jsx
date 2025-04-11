@@ -1,6 +1,6 @@
-const StudentRow = ({student}) => {
+const StudentRow = ({student, setStudentToEdit}) => {
     return (
-        <tr>
+        <tr onClick={() => setStudentToEdit(() => student)}>
             <td>{student.id}</td>
             <td>{student.firstName}</td>
             <td>{student.lastName}</td>

@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NotFound from './Screens/NotFound';
 import StudentsView from './Screens/StudentsView';
 import AddStudent from './Screens/AddStudent';
+import EditStudent from './Screens/EditStudent';
+import HonoredView from './Screens/HonoredView';
 
 
 
@@ -15,6 +17,10 @@ const App = () => {
             <Route exact path="/" element={<StudentsView />} />
             
             <Route exact path="/add" element={<AddStudent />} />
+
+            <Route exact path="/edit" element={<EditStudent />} />
+
+            <Route exact path="/honored" element={<HonoredView />} />
 
             <Route path="*" element={<NotFound />} />
 
