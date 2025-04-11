@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HonoredTable from "../Components/HonoredTable/HonoredTable";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import "../css/HonoredView.css";
 
 const HonoredView = () => {
     const [students, setStudents] = useState([]);
@@ -57,7 +58,7 @@ const HonoredView = () => {
 
 
     return (
-        <div>
+        <div className="honoredView">
             <h2>Honored Candidates</h2>
             <HonoredTable students={toShow}/>
 
