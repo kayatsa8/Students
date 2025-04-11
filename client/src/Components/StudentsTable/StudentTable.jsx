@@ -3,7 +3,7 @@ import StudentRow from "./StudentRow";
 import TableHeaders from "./TableHeaders";
 import HeaderFilters from "./HeaderFilters";
 
-const StudentTable = ({students, initSort}) => {
+const StudentTable = ({students, initSort, setStudentToEdit}) => {
     const [sortConfig, setSortConfig] = useState(initSort);
     const [filters, setFilters] = useState({firstName: "", lastName: "", department: ""});
 
@@ -76,7 +76,13 @@ const StudentTable = ({students, initSort}) => {
             </thead>
 
             <tbody>
-                {sortedStudents.map((student) => <StudentRow key={student.id} student={student}/>)}
+                {sortedStudents.map((student) =>
+                    <StudentRow
+                        key={student.id}
+                        student={student}
+                        setStudentToEdit={setStudentToEdit}
+                    />
+                )}
             </tbody>
         </table>
     );
