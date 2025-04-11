@@ -1,0 +1,18 @@
+.studentTable{
+    font-size: 20px;
+}
+
+td, th{
+    border: 2px solid black;
+}
+
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+
+input{
+    font-size: 20px;
+}
+

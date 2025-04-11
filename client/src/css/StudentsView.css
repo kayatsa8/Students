@@ -1,0 +1,10 @@
+.studentView button{
+    display: block;
+    margin: 20px;
+    font-size: 20px;
+}
+
+.studentView h2{
+    font-size: 30px;
+    margin-left: 20px;
+}

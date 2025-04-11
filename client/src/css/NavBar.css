@@ -1,0 +1,10 @@
+.navbar{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: rgb(0, 8, 255);
+}

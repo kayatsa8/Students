@@ -1,0 +1,25 @@
+.addStudent h2{
+    font-size: 30px;
+}
+
+.addStudent{
+    font-size: 20px;
+}
+
+.addStudent button{
+    font-size: 20px;
+}
+
+.addStudent label, input{
+    display: block;
+}
+
+.addStudent select{
+    font-size: 20px;
+}
+
+
+.addStudent .addButton{
+    margin-top: 20px;
+}
+
