@@ -1,4 +1,4 @@
-const HonoredFilters = () => {
+const HonoredFilters = ({filters, handleFilterChange}) => {
     return (
         <tr>
             <th />
