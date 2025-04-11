@@ -1,5 +1,7 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NotFound from './Screens/NotFound';
+import StudentsView from './Screens/StudentsView';
+import AddStudent from './Screens/AddStudent';
 
 
 
@@ -8,13 +10,15 @@ const App = () => {
     <Router>
       <div>
         <div>
-          <Switch>
+          <Routes>
 
-            <Route path="*">
-              <NotFound />
-            </Route>
+            <Route exact path="/" element={<StudentsView />} />
+            
+            <Route exact path="/add" element={<AddStudent />} />
 
-          </Switch>
+            <Route path="*" element={<NotFound />} />
+
+          </Routes>
         </div>
 
         {/* put toast here */}
