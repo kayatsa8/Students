@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StudentTable from "../Components/StudentsTable/StudentTable";
 import axios from "axios";
-import NavBar from "../Components/NavBar";
+import { toast } from 'react-toastify';
 
 const StudentsView = () => {
     const [students, setStudents] = useState([]);
     const navigate = useNavigate();
-    const [error, setError] = useState(null);
     const [studentToEdit, setStudentToEdit] = useState(null);
 
 
@@ -24,7 +23,16 @@ const StudentsView = () => {
                     setStudents(() => data);
                 })
                 .catch((err) => {
-                    setError(() => err);
+                    toast.error(err.message, {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 });
     }, []);
 
