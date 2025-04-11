@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import StudentTable from "../Components/StudentsTable/StudentTable";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import "../css/StudentsView.css"
 
 const StudentsView = () => {
     const [students, setStudents] = useState([]);
@@ -50,7 +51,7 @@ const StudentsView = () => {
 
 
     return (
-        <div>
+        <div className="studentView">
             <h2>Students</h2>
             <StudentTable
                 students={students}

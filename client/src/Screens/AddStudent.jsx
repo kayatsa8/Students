@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import "../css/AddStudent.css";
 
 const AddStudent = () => {
     const navigate = useNavigate();
@@ -95,7 +96,7 @@ const AddStudent = () => {
 
 
     return (
-        <div>
+        <div className="addStudent">
             <button onClick={handleBackClick}>Back</button>
 
             <h2>Add Student</h2>
@@ -144,7 +145,7 @@ const AddStudent = () => {
                     onChange={(e) => setGpa(() => e.target.value)}
                 />
 
-                <button>Add</button>
+                <button className="addButton">Add</button>
             </form>
 
             {isPending && <p>pending...</p>}
