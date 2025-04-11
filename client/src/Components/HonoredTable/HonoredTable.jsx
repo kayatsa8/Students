@@ -15,9 +15,8 @@ const HonoredTable = ({students}) => {
         }));
     };
 
-    const filtered = students.filter((student) => 
-        student.gpa >= 90 &&
-            (student.department.toLowerCase().includes(filters.department.toLowerCase()))
+    const filtered = students.filter((student) =>
+            student.department.toLowerCase().includes(filters.department.toLowerCase())
     );
 
 
