@@ -2,6 +2,7 @@ import { useState } from "react";
 import StudentRow from "./StudentRow";
 import TableHeaders from "./TableHeaders";
 import HeaderFilters from "./HeaderFilters";
+import "../../css/StudentTable.css"
 
 const StudentTable = ({students, initSort, setStudentToEdit}) => {
     const [sortConfig, setSortConfig] = useState(initSort);
@@ -69,7 +70,7 @@ const StudentTable = ({students, initSort, setStudentToEdit}) => {
 
 
     return (
-        <table>
+        <table className="studentTable">
             <thead>
                 <TableHeaders sortColumn={sortColumn} getSortArrow={getSortArrow}/>
                 <HeaderFilters filters={filtered} handleFilterChange={handleFilterChange} />
