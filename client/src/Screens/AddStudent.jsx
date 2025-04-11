@@ -16,8 +16,26 @@ const AddStudent = () => {
         navigate("/");
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
+        const student = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            department: department,
+            gpa: gpa
+        }
+
+        axios.post("http://localhost:8080/api/students/add", student)
+                .then((response) => {
+                    if(response.status !== 201){
+                        throw new Error(response.statusText);
+                    }
+                })
+                .catch((err) => {
+                    // TODO: add error handling
+                });
     };
 
     useEffect(() => {
