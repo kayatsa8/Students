@@ -2,6 +2,7 @@ import { useState } from "react";
 import HonoredHeaders from "./HonoredHeaders";
 import HonoredFilters from "./HonoredFilters";
 import HonoredRow from "./HonoredRow";
+import "../../css/HonoredTable.css";
 
 
 
@@ -21,7 +22,7 @@ const HonoredTable = ({students}) => {
 
 
     return (
-        <table>
+        <table className="honoredTable">
             <thead>
                 <HonoredHeaders />
                 <HonoredFilters filters={filters} handleFilterChange={handleFilterChange} />
