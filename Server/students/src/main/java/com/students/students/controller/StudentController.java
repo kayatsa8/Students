@@ -1,6 +1,7 @@
 package com.students.students.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.students.students.model.Department;
 import com.students.students.model.Student;
 import com.students.students.model.StudentUpdate;
 import com.students.students.service.StudentService;
@@ -56,6 +58,12 @@ public class StudentController {
         catch(Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/departments")
+    public Map<Department, String> getDepartments(){
+        return service.getDepartments();
     }
 
 
