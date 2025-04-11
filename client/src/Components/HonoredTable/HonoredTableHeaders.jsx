@@ -1,4 +1,4 @@
-const HonoredTableHeaders = () => {
+const HonoredHeaders = () => {
     return (
         <tr>
             <th>Email</th>
@@ -8,4 +8,4 @@ const HonoredTableHeaders = () => {
     );
 }
  
-export default HonoredTableHeaders;
+export default HonoredHeaders;
