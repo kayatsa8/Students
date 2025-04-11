@@ -1,0 +1,25 @@
+.editStudent h2{
+    font-size: 30px;
+}
+
+.editStudent{
+    font-size: 20px;
+}
+
+.editStudent button{
+    font-size: 20px;
+}
+
+.editStudent label, input{
+    display: block;
+}
+
+.editStudent select{
+    font-size: 20px;
+}
+
+
+.editStudent .editButton{
+    margin-top: 20px;
+}
+
