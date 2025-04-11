@@ -1,7 +1,13 @@
+import HonoredTable from "../Components/HonoredTable/HonoredTable";
+import NavBar from "../Components/NavBar";
+
 const HonoredView = () => {
     return (
         <div>
-            honored
+            <NavBar />
+
+            <h2>Honored Candidates</h2>
+            <HonoredTable students={[]}/>
         </div>
     );
 }
