@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const EditStudent = () => {
     const navigate = useNavigate();
@@ -13,7 +14,6 @@ const EditStudent = () => {
     const [gpa, setGpa] = useState(student.gpa);
     const [departments, setDepartments] = useState({});
     const [isPending, setIsPending] = useState(false);
-    const [isCompleted, setIsCompleted] = useState(false); // TODO: toast
 
 
     const handleBackClick = () => {
@@ -45,14 +45,32 @@ const EditStudent = () => {
 
         axios.patch("http://localhost:8080/api/students/update", updated)
                 .then((response) => {
-                    if(response !== 200){
+                    if(response.status !== 200){
                         throw new Error(response.statusText);
                     }
 
-                    setIsCompleted(() => true);
+                    toast.success("Success!", {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 })
                 .catch((err) => {
-                    // TODO
+                    toast.error(err, {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 })
                 .finally(() => {
                     setIsPending(() => false);
@@ -74,7 +92,16 @@ const EditStudent = () => {
                     setDepartments(() => data);
                 })
                 .catch((err) => {
-                    setError(() => err);
+                    toast.error(err, {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 });
     }, []);
 
