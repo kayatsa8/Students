@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StudentTable from "../Components/StudentsTable/StudentTable";
 import axios from "axios";
+import NavBar from "../Components/NavBar";
 
 const StudentsView = () => {
     const [students, setStudents] = useState([]);
@@ -42,6 +43,8 @@ const StudentsView = () => {
 
     return (
         <div>
+            <NavBar />
+
             <h2>Students</h2>
             <StudentTable
                 students={students}
