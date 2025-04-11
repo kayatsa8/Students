@@ -35,7 +35,7 @@ const StudentsView = () => {
     };
 
     const handleEditStudent = () => {
-        navigate("/edit");
+        navigate("/edit", {state: studentToEdit});
     };
 
 

@@ -1,7 +1,18 @@
+import { useNavigate, useLocation } from "react-router-dom";
+
 const EditStudent = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const student = location.state;
+
+
+    const handleBackClick = () => {
+        navigate("/");
+    };
+
     return (
         <div>
-            edit
+            <button onClick={handleBackClick}>Back</button>
         </div>
     );
 }
