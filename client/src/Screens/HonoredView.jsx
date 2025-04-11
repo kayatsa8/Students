@@ -6,6 +6,7 @@ import axios from "axios";
 const HonoredView = () => {
     const [students, setStudents] = useState([]);
     const [error, setError] = useState(null);
+    const [isTop, setIsTop] = useState(false);
 
 
 
@@ -27,6 +28,18 @@ const HonoredView = () => {
     }, []);
 
     const honored = students.filter((student) => student.gpa >= 90);
+    
+    const topStudents = Object.values(
+        students.reduce((acc, student) => {
+            const department = student.department;
+
+            if(!acc[department] || acc[department].gpa < student.gpa){
+                acc[department] = student;
+            }
+
+            return acc;
+        }, {})
+    );
 
 
     return (
@@ -35,6 +48,9 @@ const HonoredView = () => {
 
             <h2>Honored Candidates</h2>
             <HonoredTable students={honored}/>
+
+            {!isTop && <button>Top Students</button>}
+            {isTop && <button>All Honored Students</button>}
         </div>
     );
 }
