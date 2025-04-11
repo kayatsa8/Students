@@ -6,11 +6,11 @@ const EditStudent = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const student = location.state;
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [department, setDepartment] = useState("SOFTWARE_ENGINEERING");
-    const [gpa, setGpa] = useState(0);
+    const [firstName, setFirstName] = useState(student.firstName);
+    const [lastName, setLastName] = useState(student.lastName);
+    const [email, setEmail] = useState(student.email);
+    const [department, setDepartment] = useState(student.department);
+    const [gpa, setGpa] = useState(student.gpa);
     const [departments, setDepartments] = useState({});
     const [isPending, setIsPending] = useState(false);
     const [isCompleted, setIsCompleted] = useState(false); // TODO: toast
@@ -21,6 +21,42 @@ const EditStudent = () => {
     };
 
     const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setIsPending(() => true);
+
+        const updated = {id: student.id};
+
+        if(firstName !== student.firstName){
+            updated["firstName"] = firstName;
+        }
+        if(lastName !== student.lastName){
+            updated["lastName"] = lastName;
+        }
+        if(email !== student.email){
+            updated["email"] = email;
+        }
+        if(department !== student.department){
+            updated["department"] = firsdepartmenttName;
+        }
+        if(gpa !== student.gpa){
+            updated["gpa"] = gpa;
+        }
+
+        axios.patch("http://localhost:8080/api/students/update", updated)
+                .then((response) => {
+                    if(response !== 200){
+                        throw new Error(response.statusText);
+                    }
+
+                    setIsCompleted(() => true);
+                })
+                .catch((err) => {
+                    // TODO
+                })
+                .finally(() => {
+                    setIsPending(() => false);
+                })
 
     }
 
@@ -56,7 +92,6 @@ const EditStudent = () => {
                 <input
                     type="text"
                     value={firstName}
-                    placeholder="Frodo"
                     onChange={(e) => setFirstName(() => e.target.value)}
                 />
 
@@ -64,7 +99,6 @@ const EditStudent = () => {
                 <input
                     type="text"
                     value={lastName}
-                    placeholder="Baggins"
                     onChange={(e) => setLastName(() => e.target.value)}
                 />
 
@@ -72,7 +106,6 @@ const EditStudent = () => {
                 <input
                     type="text"
                     value={email}
-                    placeholder="bagginsf@gmail.com"
                     onChange={(e) => setEmail(() => e.target.value)}
                 />
 
@@ -87,11 +120,10 @@ const EditStudent = () => {
                 <input
                     type="number"
                     value={gpa}
-                    placeholder={82.13}
                     onChange={(e) => setGpa(() => e.target.value)}
                 />
 
-                <button>Add</button>
+                <button>Confirm Edit</button>
             </form>
 
             {isPending && <p>pending...</p>}
