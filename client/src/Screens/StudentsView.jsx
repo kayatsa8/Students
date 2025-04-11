@@ -31,7 +31,11 @@ const StudentsView = () => {
     const excellent = students.filter((student) => student.gpa >= 90);
 
     const handleAddStudentClick = () => {
-        navigate("add");
+        navigate("/add");
+    };
+
+    const handleEditStudent = () => {
+        navigate("/edit");
     };
 
 
@@ -53,7 +57,7 @@ const StudentsView = () => {
             />
 
             <button onClick={handleAddStudentClick}>Add Student</button>
-            {studentToEdit && <button>Edit {`${studentToEdit.firstName} ${studentToEdit.lastName} (${studentToEdit.id})`}</button>}
+            {studentToEdit && <button onClick={handleEditStudent}>Edit {`${studentToEdit.firstName} ${studentToEdit.lastName} (${studentToEdit.id})`}</button>}
         </div>
     );
 }
