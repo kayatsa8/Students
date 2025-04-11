@@ -31,8 +31,6 @@ const HonoredView = () => {
 
     return (
         <div>
-            <NavBar />
-
             <h2>Honored Candidates</h2>
             <HonoredTable students={honored}/>
         </div>

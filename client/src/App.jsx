@@ -4,6 +4,9 @@ import StudentsView from './Screens/StudentsView';
 import AddStudent from './Screens/AddStudent';
 import EditStudent from './Screens/EditStudent';
 import HonoredView from './Screens/HonoredView';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import NavBar from './Components/NavBar';
 
 
 
@@ -11,6 +14,8 @@ const App = () => {
   return (
     <Router>
       <div>
+        <NavBar />
+
         <div>
           <Routes>
 
@@ -27,7 +32,7 @@ const App = () => {
           </Routes>
         </div>
 
-        {/* put toast here */}
+        <ToastContainer />
       </div>
     </Router>
   );

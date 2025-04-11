@@ -43,8 +43,6 @@ const StudentsView = () => {
 
     return (
         <div>
-            <NavBar />
-
             <h2>Students</h2>
             <StudentTable
                 students={students}
