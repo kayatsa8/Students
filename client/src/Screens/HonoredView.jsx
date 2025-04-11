@@ -26,7 +26,7 @@ const HonoredView = () => {
                 });
     }, []);
 
-    const excellent = students.filter((student) => student.gpa >= 90);
+    const honored = students.filter((student) => student.gpa >= 90);
 
 
     return (
@@ -34,7 +34,7 @@ const HonoredView = () => {
             <NavBar />
 
             <h2>Honored Candidates</h2>
-            <HonoredTable students={excellent}/>
+            <HonoredTable students={honored}/>
         </div>
     );
 }
