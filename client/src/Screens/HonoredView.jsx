@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import HonoredTable from "../Components/HonoredTable/HonoredTable";
-import NavBar from "../Components/NavBar";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 const HonoredView = () => {
     const [students, setStudents] = useState([]);
-    const [error, setError] = useState(null);
     const [isTop, setIsTop] = useState(false);
 
 
@@ -23,7 +22,16 @@ const HonoredView = () => {
                     setStudents(() => data);
                 })
                 .catch((err) => {
-                    setError(() => err);
+                    toast.error(err, {
+                        position: "bottom-left",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 });
     }, []);
 
