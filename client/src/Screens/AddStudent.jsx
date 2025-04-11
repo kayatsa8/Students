@@ -10,6 +10,8 @@ const AddStudent = () => {
     const [department, setDepartment] = useState("SOFTWARE_ENGINEERING");
     const [gpa, setGpa] = useState(0);
     const [departments, setDepartments] = useState({});
+    const [isPending, setIsPending] = useState(false);
+    const [isCompleted, setIsCompleted] = useState(false); // TODO: toast
 
 
     const handleBackClick = () => {
@@ -18,6 +20,8 @@ const AddStudent = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        setIsPending(() => true);
 
         const student = {
             firstName: firstName,
@@ -32,9 +36,13 @@ const AddStudent = () => {
                     if(response.status !== 201){
                         throw new Error(response.statusText);
                     }
+
+                    setIsPending(() => false);
+                    setIsCompleted(() => true);
                 })
                 .catch((err) => {
                     // TODO: add error handling
+                    setIsPending(() => false);
                 });
     };
 
@@ -109,6 +117,8 @@ const AddStudent = () => {
 
                 <button>Add</button>
             </form>
+
+            {isPending && <p>pending...</p>}
         </div>
     );
 }
