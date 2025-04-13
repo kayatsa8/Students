@@ -59,7 +59,7 @@ const HonoredView = () => {
 
     return (
         <div className="honoredView">
-            <h2>Honored Candidates</h2>
+            <h2>Honor-Candidates</h2>
             <HonoredTable students={toShow}/>
 
             {!isTop && <button onClick={handleTopClick}>Top Students</button>}
