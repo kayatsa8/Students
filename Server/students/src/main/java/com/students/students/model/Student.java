@@ -37,7 +37,7 @@ public class Student {
 
     @Min(value = 0, message = "GPA must be greater or equal to 0")
     @Max(value = 100, message = "GPA must be lesser or equal to 100")
-    private Float gpa;
+    private Integer gpa;
 
     public void update(StudentUpdate updated){
         this.firstName = (updated.getFirstName() == null || updated.getFirstName().isBlank()) ?

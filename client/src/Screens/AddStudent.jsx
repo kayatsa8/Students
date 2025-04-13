@@ -141,7 +141,7 @@ const AddStudent = () => {
                     required
                     type="number"
                     value={gpa}
-                    placeholder={82.13}
+                    placeholder={82}
                     onChange={(e) => setGpa(() => e.target.value)}
                 />
 
